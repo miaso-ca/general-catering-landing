@@ -3,20 +3,24 @@ import './HowItWorks.css'
 
 const STEPS = [
   {
-    title: 'Tell Us About Your Event',
-    desc: 'Share your preferred date, venue, guest count, budget, event format and dietary requirements.',
+    number: '01',
+    title: 'Select Your Service & Menu',
+    description: 'Choose your format — boards, grazing table, full catering or the mobile cart — and pick your menu, or ask us to build one for you.',
   },
   {
-    title: 'Receive a Tailored Recommendation',
-    desc: "We'll recommend the most suitable catering format and prepare a personalized menu and quote.",
+    number: '02',
+    title: 'Receive a Personalized Quote',
+    description: "We'll prepare a detailed quote and, on request, a printed menu card tailored to your event.",
   },
   {
-    title: 'Confirm the Details',
-    desc: 'Approve the menu and service package. Your date is reserved once availability is confirmed and the required deposit is received.',
+    number: '03',
+    title: 'Confirm with a Deposit',
+    description: 'Approve your quote and secure your date with a deposit — your booking is confirmed once it is received.',
   },
   {
-    title: 'Enjoy Your Event',
-    desc: 'Depending on your selected package, the MIASO team will prepare, deliver, style, serve and clean up.',
+    number: '04',
+    title: 'Enjoy Your Event, Stress-Free',
+    description: 'We deliver, style and (depending on your package) serve and clean up — you just enjoy the day.',
   },
 ]
 
@@ -39,17 +43,17 @@ export default function HowItWorks({ onRequestQuote }) {
         <div className="how-it-works__steps">
           {STEPS.map((step, i) => (
             <div className="how-it-works__step" key={step.title}>
-              <span className="how-it-works__number">{String(i + 1).padStart(2, '0')}</span>
+              <span className="how-it-works__number">{step.number}</span>
               <div className="how-it-works__copy">
                 <h3>{step.title}</h3>
-                <p>{step.desc}</p>
+                <p>{step.description}</p>
               </div>
             </div>
           ))}
         </div>
 
         <button className="btn how-it-works__cta" type="button" onClick={onRequestQuote}>
-          Request a Corporate&nbsp;Quote
+          Request a Quote
         </button>
       </div>
     </section>
