@@ -5,29 +5,29 @@ import useReveal from '../hooks/useReveal.js'
 import './FinalForm.css'
 
 const EVENT_TYPES = [
-  'Office Lunch or Meeting',
-  'Team Celebration',
-  'Client Event',
-  'Company Milestone',
-  'Not sure yet',
+  'Wedding',
+  'Birthday or Anniversary',
+  'Baby or Bridal Shower',
+  'Brunch or Home Gathering',
+  'Office or Corporate Event',
+  'Other',
 ]
 
 const CATERING_FORMATS = [
-  'Office Lunches & Drop-Off Catering',
-  'Shareable Platters',
-  'Individual Cups & Boats',
-  'Mobile Cart',
-  'Full-Service Catering',
-  'Catering + Bar Service',
+  'Boards, Cups & Platters',
+  'Grazing Tables',
+  'Full Catering',
+  'Mobile Charcuterie Cart',
+  'Bar / Beverage Add-On',
   'Not sure yet',
 ]
 
 const BUDGET_RANGES = [
-  'Under $500',
+  'Under $200',
+  '$200 – $500',
   '$500 – $1,500',
   '$1,500 – $5,000',
-  '$5,000 – $15,000',
-  '$15,000+',
+  '$5,000+',
   'Not sure yet',
 ]
 
