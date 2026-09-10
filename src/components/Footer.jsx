@@ -17,7 +17,7 @@ export default function Footer() {
           <a className="footer__logo" href="#top">
             MIASO
           </a>
-          <p className="footer__tagline">Toronto &amp; GTA · Corporate Catering</p>
+          <p className="footer__tagline">Toronto &amp; GTA · Catering for Every Celebration</p>
         </div>
 
         <div className="footer__col">

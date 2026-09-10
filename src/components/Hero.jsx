@@ -36,7 +36,7 @@ export default function Hero({ onWatchVideo, onRequestQuote }) {
                 }`}
                 ref={headline.ref}
               >
-                Corporate Catering That Makes Hosting&nbsp;Effortless
+                Beautiful Hosting, Made&nbsp;Effortless
               </h1>
             </div>
 
@@ -45,13 +45,14 @@ export default function Hero({ onWatchVideo, onRequestQuote }) {
               ref={card.ref}
             >
               <p className="hero__desc">
-                From polished office lunches and client receptions to grazing tables, a staffed
-                Mobile Cart and full-service events, MIASO delivers fresh food, thoughtful
-                presentation and seamless support across Toronto and the GTA.
+                From grazing tables and charcuterie boards to full-service catering, MIASO
+                brings fresh, beautifully styled food to your celebration — weddings,
+                showers, birthdays and every gathering in between across Toronto and
+                the GTA.
               </p>
               <div className="hero__actions">
                 <button className="btn" type="button" onClick={onRequestQuote}>
-                  Request a Corporate&nbsp;Quote
+                  Request a&nbsp;Quote
                 </button>
                 <button className="hero__watch" onClick={onWatchVideo} type="button">
                   <span className="hero__play">▶</span>
@@ -59,8 +60,8 @@ export default function Hero({ onWatchVideo, onRequestQuote }) {
                 </button>
               </div>
               <div className="hero__trust">
-                Made fresh to order · Flexible dietary options · Delivery, setup and staffed
-                service available
+                Made fresh to order · Flexible dietary options · Halal &amp; kosher-friendly
+                substitutions available
               </div>
             </div>
           </div>

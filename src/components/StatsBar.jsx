@@ -70,7 +70,7 @@ export default function StatsBar() {
   return (
     <div className="section-dark">
       <section className="section stats-bar">
-        <h2 className="stats-bar__heading">Corporate Events, Thoughtfully&nbsp;Handled</h2>
+        <h2 className="stats-bar__heading">Every&nbsp;Celebration, Thoughtfully&nbsp;Handled</h2>
         <div className="stats-bar__grid">
           {STATS.map((s, i) => (
             <Stat key={s.value ?? s.countTo} stat={s} delay={i * 100} />
