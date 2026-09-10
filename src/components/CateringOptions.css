@@ -1,0 +1,203 @@
+/* Standardized inter-section gap (see --section-gap in tokens.css): this
+   section owns the top of its own gap, none of the bottom — the section
+   after it is responsible for its own top spacing instead. */
+#catering-options.section {
+  padding-top: var(--section-gap);
+  padding-bottom: 0;
+}
+
+.catering-options__intro {
+  max-width: 640px;
+  margin: 14px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4a3c2c;
+  text-wrap: pretty;
+}
+
+#catering-options > h2 {
+  text-wrap: balance;
+}
+
+.catering-options__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 36px;
+}
+
+.catering-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid #f0e2d0;
+  transition: box-shadow 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+  will-change: transform;
+  /* Grid stretches each row's cards to equal height by default; flex-column
+     + margin-top:auto on the pill below pins it to the bottom edge instead
+     of wherever the (variable-length) description happens to end. */
+  display: flex;
+  flex-direction: column;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .catering-card:hover {
+    box-shadow: 0 14px 34px rgba(43, 31, 20, 0.16);
+    transform: translateY(-4px);
+  }
+}
+
+.catering-card__photo {
+  aspect-ratio: 16 / 9;
+  background: #f0e2d0;
+  overflow: hidden;
+}
+
+.catering-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .catering-card:hover .catering-card__photo img {
+    transform: scale(1.04);
+  }
+}
+
+/* Wraps title/desc/pill so .catering-card--wide can lay photo+body side by
+   side. flex:1 + column keeps the regular (non-wide) cards behaving
+   exactly as before this wrapper existed: body fills the remaining height
+   below the photo, so the pill's margin-top:auto still pushes it to the
+   bottom of the card, not just of this wrapper. */
+.catering-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.catering-card__title {
+  font-size: 21px;
+  margin: 22px 24px 0;
+}
+
+.catering-card__desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #4a3c2c;
+  margin: 12px 24px 14px;
+  text-wrap: pretty;
+}
+
+.catering-card__best-for {
+  /* margin-top:auto only fills LEFTOVER row height (0 in the tallest card
+     of the row) — the real minimum gap above the pill comes from
+     .catering-card__desc's own margin-bottom, which never collapses
+     against a flex sibling's auto margin. */
+  margin: auto 24px 24px;
+  align-self: flex-start;
+}
+
+/* Full-width variant of .catering-card, used for whichever card lands last
+   before the bar banner - with an odd number of regular (1-column) cards,
+   that one card is otherwise stranded alone in its row next to a large
+   empty gap (the bar banner needs the full row to itself, so it can't sit
+   beside it). Same white-card look as the rest, just laid out sideways -
+   photo and text share a row instead of stacking, photo on the right
+   (row-reverse; the photo is still first in the DOM/alt-text reading
+   order). Row 1 count was even (4 cards) when the bar-card comment above
+   was written; adding Mobile Cart made it 5, reintroducing the stranding
+   this class now fixes. */
+.catering-card--wide {
+  grid-column: 1 / -1;
+  flex-direction: row-reverse;
+}
+
+.catering-card--wide .catering-card__photo {
+  flex: 0 0 42%;
+}
+
+.catering-card--wide .catering-card__body {
+  justify-content: center;
+}
+
+@media (max-width: 720px) {
+  .catering-card--wide {
+    flex-direction: column;
+  }
+  .catering-card--wide .catering-card__photo {
+    flex: none;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* One deliberate brand-red background moment on the page — used once,
+   sparingly. Was a separate full-bleed section below the grid; now a 5th
+   grid item spanning both columns instead, so a 5-card grid doesn't leave
+   a lone card stranded alone in row 3 - and there's no longer a second,
+   separate bar-service mention directly underneath it either. */
+.catering-options__bar-card {
+  grid-column: 1 / -1;
+  background: var(--cta);
+  border-radius: var(--radius);
+  padding: 40px clamp(24px, 5vw, 56px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.catering-options__bar-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--bg); /* cream-white text on --cta red */
+  margin: 0;
+  max-width: 760px;
+  text-wrap: pretty;
+}
+
+.catering-options__quote {
+  max-width: 960px;
+  margin: var(--section-gap) auto 0;
+  text-align: center;
+}
+
+.catering-options__quote h3 {
+  margin-bottom: 8px;
+  text-wrap: balance;
+}
+
+.catering-options__quote-intro {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4a3c2c;
+  max-width: 600px;
+  margin: 0 auto;
+  text-wrap: pretty;
+}
+
+.catering-options__quote-intro a {
+  color: var(--cta);
+  font-weight: 600;
+}
+
+@media (max-width: 560px) {
+  .catering-options__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* "Best for:" copy is long enough to wrap to 2 lines on every card at
+     these widths (confirmed 375–430px). A 100px pill radius on a 2-line
+     block reads as a stretched capsule instead of a tag — drop to the
+     shared small-card radius so a wrapped line looks intentional.
+     Two-class selector (not just `.catering-card__best-for`) is deliberate:
+     it needs specificity strictly higher than tokens.css's `.pill` rule so
+     it wins on tie-breaking source order regardless of how the two
+     stylesheets get concatenated/injected. */
+  .catering-card .catering-card__best-for {
+    border-radius: var(--radius-sm);
+    line-height: 1.4;
+  }
+}

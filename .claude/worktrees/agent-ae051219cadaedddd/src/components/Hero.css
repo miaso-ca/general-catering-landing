@@ -1,0 +1,158 @@
+.hero {
+  padding: 0;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.hero__frame {
+  padding-bottom: 0;
+}
+
+.hero__photo {
+  position: relative;
+  min-height: 88vh;
+  max-height: 900px;
+  overflow: hidden;
+}
+
+.hero__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Ken Burns: slow zoom-out on load, once, purely cosmetic */
+.hero__photo-img {
+  transform: scale(1.08);
+  animation: hero-kenburns 11s ease-out forwards;
+}
+@keyframes hero-kenburns {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__photo-img {
+    animation: none;
+    transform: none;
+  }
+}
+
+.hero__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(43, 31, 20, 0.12) 0%,
+    rgba(43, 31, 20, 0.4) 35%,
+    rgba(43, 31, 20, 0.72) 100%
+  );
+}
+
+.hero__photo-content {
+  /* Absolute+inset (not height:100%) — .hero__photo has no explicit `height`,
+     only min-height/max-height, so a percentage-height child resolves to
+     `auto` per spec and silently ignores the 100%. That's what broke
+     space-between: this element was only as tall as its own content, not
+     the full photo, so the card sat right under the headline instead of
+     being pushed to the bottom. inset:0 sidesteps the percentage-resolution
+     rule entirely by matching how .hero__gradient/.hero__photo img are
+     already positioned. */
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Horizontal inset mirrors .section's own math (max-width:1120px, margin
+     auto, 24px padding) — (100vw - 1120px)/2 + 24px simplifies to
+     50vw - 536px — so the hero's left edge lines up with every section
+     below it instead of using an unrelated vw-based clamp. */
+  padding-left: clamp(24px, calc(50vw - 536px), 220px);
+  padding-right: clamp(24px, calc(50vw - 536px), 220px);
+  padding-bottom: clamp(24px, 5vw, 64px);
+  padding-top: clamp(92px, 12vw, 128px);
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hero__text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.hero__title {
+  font-size: clamp(30px, 4.6vw, 52px);
+  line-height: 1.12;
+  color: #fff;
+  max-width: 620px;
+  /* Baskervville's line-box has ~30px of leading above the actual glyph
+     cap-height at this size — the flex `gap` above can't touch that, so the
+     pill-to-headline gap looks much bigger than the gap value says. Pull
+     the box up to compensate; tuned empirically against real measurement,
+     not a font-metric formula. */
+  margin-top: -30px;
+}
+
+.hero__card {
+  background: var(--card);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 14px 34px rgba(43, 31, 20, 0.16);
+  padding: 28px 32px 32px;
+  max-width: 640px;
+  width: 100%;
+}
+
+.hero__desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4a3c2c;
+  margin: 0;
+  max-width: 520px;
+}
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.hero__watch {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--ink);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  padding: 0;
+}
+
+.hero__play {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.hero__trust {
+  font-size: 11px;
+  color: #766859; /* WCAG AA on white card — #9c8a76 was only 3.3:1 */
+  margin-top: 14px;
+}
+
+@media (max-width: 560px) {
+  .hero__photo { min-height: 78vh; max-height: none; }
+  .hero__card { padding: 20px 20px 22px; max-width: none; }
+}

@@ -1,0 +1,185 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: linear-gradient(180deg, rgba(43, 31, 20, 0.35) 0%, rgba(43, 31, 20, 0) 100%);
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.28s var(--ease-out), border-color 0.28s var(--ease-out),
+    box-shadow 0.28s var(--ease-out);
+}
+
+.nav--solid {
+  background: var(--bg);
+  border-bottom-color: #f0e2d0;
+  box-shadow: 0 4px 16px rgba(43, 31, 20, 0.06);
+}
+
+.nav__bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.nav__logo {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.28s var(--ease-out);
+}
+
+.nav--solid .nav__logo {
+  color: var(--ink);
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav__links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: color 0.28s var(--ease-out), opacity 0.15s var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav__links a:hover {
+    opacity: 0.75;
+  }
+}
+
+.nav--solid .nav__links a {
+  color: var(--ink);
+}
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav__phone {
+  color: #fff;
+  font-size: 12px;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: color 0.28s var(--ease-out);
+}
+
+.nav--solid .nav__phone {
+  color: var(--ink);
+}
+
+.nav__cta {
+  padding: 10px 20px;
+  font-size: 11px;
+}
+
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  /* 44x44 hit area (WCAG 2.5.5 / mobile touch-target minimum) — the icon
+     itself stays visually compact via the fixed span width below, only the
+     tappable box grows. */
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav__toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 1px;
+  transition: background-color 0.28s var(--ease-out);
+}
+
+.nav--solid .nav__toggle span {
+  background: var(--ink);
+}
+
+.nav__mobile-panel {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav__links,
+  .nav__actions {
+    display: none;
+  }
+
+  .nav__toggle {
+    display: flex;
+  }
+
+  /* Grid-template-rows 0fr->1fr instead of animating max-height/padding —
+     avoids layout thrash, GPU-friendly. Inner wrapper clips via overflow. */
+  .nav__mobile-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    background: var(--bg);
+    border-top: 1px solid transparent;
+    transition: grid-template-rows 0.28s var(--ease-out), border-top-color 0.28s var(--ease-out);
+  }
+
+  .nav--open .nav__mobile-panel {
+    grid-template-rows: 1fr;
+    border-top-color: #f0e2d0;
+  }
+
+  /* Padding lives on -content, not -inner: a 0fr row's "automatic minimum
+     size" only zeroes out CONTENT-based sizing on an overflow:hidden item —
+     the item's own padding still counts toward its box size regardless, so
+     with padding here the panel never fully collapsed to 0 when closed
+     (it sat at a fixed ~28px, visibly peeking over the hero photo). */
+  .nav__mobile-panel-inner {
+    overflow: hidden;
+  }
+
+  .nav__mobile-panel-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 8px 24px 20px;
+  }
+
+  .nav__mobile-panel a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .nav__mobile-panel .btn {
+    margin-top: 8px;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Mobile menu opens over the hero photo before scroll — always render it
+     on the solid cream surface so labels stay legible either way. */
+  .nav__mobile-panel {
+    background: var(--bg);
+  }
+}

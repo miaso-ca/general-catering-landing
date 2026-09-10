@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+.env.local
+.DS_Store
+.superpowers/
+
+# Third-party design-skill packages (installed tooling, not site code)
+.agents/
+.claude/skills/
+skills-lock.json

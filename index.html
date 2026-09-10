@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- ?v= busts favicon caching, which browsers key by URL and hold onto
+         far more stubbornly than normal page assets - bump it whenever the
+         favicon file itself changes again. -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3" />
+    <link rel="icon" type="image/png" href="/favicon.png?v=3" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MIASO Corporate Catering — Toronto &amp; GTA</title>
+    <meta name="description" content="Corporate catering in Toronto that makes hosting effortless. Office lunches, grazing tables, Mobile Cart and full-service events." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MIASO Corporate Catering — Toronto & GTA" />
+    <meta property="og:description" content="Corporate catering in Toronto that makes hosting effortless. Office lunches, grazing tables, Mobile Cart and full-service events." />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MIASO Corporate Catering — Toronto & GTA" />
+    <meta name="twitter:description" content="Corporate catering in Toronto that makes hosting effortless. Office lunches, grazing tables, Mobile Cart and full-service events." />
+    <meta name="twitter:image" content="/og-image.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Josefin+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Google Analytics 4 (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SS6HTCGBYL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SS6HTCGBYL');
+    </script>
+    <!-- End GA4 -->
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1650470559273087');
+      fbq('track', 'PageView');
+    </script>
+    <!-- End Meta Pixel Code -->
+  </head>
+  <body>
+    <!-- noscript fallback pixel must live in <body> - parse5/HTML5 only
+         allows link/style/meta inside a <head><noscript>, an <img> there
+         fails Vite's build-time HTML parsing. -->
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1650470559273087&ev=PageView&noscript=1"
+      alt=""
+    /></noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
