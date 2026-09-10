@@ -91,6 +91,13 @@
   text-wrap: pretty;
 }
 
+.catering-card__price {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--cta);
+  margin: 0 24px 12px;
+}
+
 .catering-card__best-for {
   /* margin-top:auto only fills LEFTOVER row height (0 in the tallest card
      of the row) — the real minimum gap above the pill comes from
