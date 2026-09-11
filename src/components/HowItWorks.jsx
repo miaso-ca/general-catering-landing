@@ -36,7 +36,7 @@ export default function HowItWorks({ onRequestQuote }) {
       <div className="how-it-works__panel">
         <h2>From Your Brief to a Beautifully Served Event</h2>
         <p className="how-it-works__intro">
-          Every MIASO corporate event runs on the same process, from your first message to the
+          Every MIASO event runs on the same process, from your first message to the
           last tray cleared — no guesswork, no surprises on the day:
         </p>
 

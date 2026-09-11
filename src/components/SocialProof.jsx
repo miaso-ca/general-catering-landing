@@ -62,7 +62,7 @@ function ClientVideo() {
         muted
         loop
         playsInline
-        aria-label="Behind-the-scenes footage from a MIASO corporate event"
+        aria-label="Behind-the-scenes footage from a MIASO event"
       />
       <div className="social-proof__video-gradient" aria-hidden="true" />
       <span className="social-proof__video-caption">Behind the scenes at a MIASO&nbsp;event</span>
@@ -89,10 +89,10 @@ export default function SocialProof() {
     <div className="section-dark">
       <section className="section" id="social-proof">
         <Reveal>
-          <h2>Trusted for Events That Need to Feel Polished, Welcoming and Well Organized</h2>
+          <h2>Trusted to Make Every Celebration Feel Special</h2>
           <p className="social-proof__subhead">
-            See how MIASO helps Toronto businesses create memorable experiences for their teams,
-            clients and guests.
+            See how MIASO helps hosts across Toronto and the GTA create memorable moments for
+            their families, friends and guests.
           </p>
         </Reveal>
 

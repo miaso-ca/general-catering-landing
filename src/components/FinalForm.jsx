@@ -231,7 +231,7 @@ export default function FinalForm() {
 
             {submitError && <p className="final-form__error final-form__error--submit">{submitError}</p>}
             <button className="btn" type="submit" disabled={submitting}>
-              {submitting ? 'Sending…' : 'Request a Corporate Quote'}
+              {submitting ? 'Sending…' : 'Request a Quote'}
             </button>
 
             <p className="final-form__disclaimer">
