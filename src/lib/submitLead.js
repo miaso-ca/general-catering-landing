@@ -1,8 +1,10 @@
 import { trackLead, generateEventId } from './analytics.js'
 import { getUtm } from './utm.js'
 
-// Google Apps Script Web App deployed from apps-script/Code.gs — see that
-// file's header comment for the deploy steps and required script properties.
+// Google Apps Script Web App deployed from miaso-corporate-landing's
+// apps-script/Code.gs (shared backend for both sites) — see that file's
+// header comment for deploy steps and required script properties.
+// This repo's own apps-script/Code.gs is a stub, not the deployed script.
 const ENDPOINT_URL =
   'https://script.google.com/macros/s/AKfycbx9hByc4kOO0B9WL73Dg-H0vhRc82x8U47biaO16Ph1cZWLUDq9tWAJPj64x59RQ66w6Q/exec'
 
