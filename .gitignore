@@ -8,4 +8,6 @@ dist/
 # Third-party design-skill packages (installed tooling, not site code)
 .agents/
 .claude/skills/
+.claude/worktrees/
+.impeccable/
 skills-lock.json
