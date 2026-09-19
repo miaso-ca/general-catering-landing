@@ -2,6 +2,10 @@ import './Hero.css'
 import heroPhoto from '../assets/photos/hero-table.jpg'
 import useReveal from '../hooks/useReveal.js'
 
+// ponytail: client's real video is still being edited (Olya, 2026-09-15) -
+// hide the watch button on both sites until it's ready. Flip to true then.
+const VIDEO_READY = false
+
 export default function Hero({ onWatchVideo, onRequestQuote }) {
   // Above-the-fold: reveal on mount rather than waiting for scroll, staggered
   // so the eyebrow settles first, then the headline, then the card — a small
@@ -54,10 +58,12 @@ export default function Hero({ onWatchVideo, onRequestQuote }) {
                 <button className="btn" type="button" onClick={onRequestQuote}>
                   Request a&nbsp;Quote
                 </button>
-                <button className="hero__watch" onClick={onWatchVideo} type="button">
-                  <span className="hero__play">▶</span>
-                  Watch 45&nbsp;sec
-                </button>
+                {VIDEO_READY && (
+                  <button className="hero__watch" onClick={onWatchVideo} type="button">
+                    <span className="hero__play">▶</span>
+                    Watch 45&nbsp;sec
+                  </button>
+                )}
               </div>
               <div className="hero__trust">
                 Made fresh to order · Flexible dietary options · Halal &amp; kosher-friendly
